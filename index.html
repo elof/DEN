@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DEN</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./form.css">
+    <link rel="stylesheet" href="./style.css">
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- Include Keen IO for form submission -->
+    <script src="https://d26b395fwzu5fz.cloudfront.net/3.2.4/keen-tracker.min.js"></script>
+    <script src="./ready.min.js"></script>
+    <script type="text/javascript">
+    $ (document).ready(function(){
+      $("#logo-words").hide();
+      $("#logo-words").fadeIn(1500);
+    });
+    </script>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+          <svg viewBox="0 0 492 251" xmlns="http://www.w3.org/2000/svg">
+            <title>D E N</title>
+            <g fill="none" fill-rule="evenodd">
+              <path stroke="#000" stroke-width="24" d="M0 0h492v251H0z"/>
+              <path d="M123.52 158.113c3.945 0 7.187-.41 9.726-1.23 4.53-1.524 8.242-4.453 11.133-8.79 2.304-3.476 3.964-7.93 4.98-13.36.585-3.24.878-6.25.878-9.022 0-10.663-2.12-18.944-6.357-24.843-4.237-5.898-11.064-8.847-20.478-8.847H102.72v66.093h20.8zM91 82h34.863c11.836 0 21.016 4.2 27.54 12.598 5.82 7.578 8.73 17.285 8.73 29.12 0 9.14-1.72 17.403-5.156 24.786-6.055 13.047-16.465 19.57-31.23 19.57H91V82zm120.586 0h62.754v10.547h-51.387v26.133h47.52v9.96h-47.52v29.18h52.266v10.254h-63.634V82zm112.266 0h13.77l43.476 69.727V82h11.074v86.074h-13.067l-44.12-69.668v69.668H323.85V82z" fill="#000"/>
+            </g>
+          </svg>
+          <div id="logo-words">
+            Dyslexic Entrepreneur Network
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+          <div class="row">
+            <hr>
+            <p>
+              Dyslexics are 10% of the population, 35% of entrepreneurs and 41% of prisoners. DEN is going to change the story of dyslexia, dyscalculia, ADHD and similar labels into one of strengths, not shame. With support, all members of DEN will be able to own who they are, understand it and, best of all, love it.
+            </p><br>
+            <p>
+              A number of nationalities (Irish, Indian, Canadian) have networking groups that provide community, curriculum and capital in Silicon Valley and beyond. DEN will treat dyslexia and related profiles as a nationality, helping build the dyslexia identity in the context of strengths.
+            </p><br>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              Date:<br>
+
+              Monday, January 25, 2016 <br>
+              5:30 p.m. - 7:00 p.m. Reception <br>
+              7:15 p.m. - 9:15 p.m. Presentation
+            </div>
+            <div class="col-sm-6">
+              Where:<br>
+
+              Lucas Films Auditorium <br>
+              One Letterman Drive <br>
+              San Francisco, CA
+            </div>
+          </div>
+          <hr>
+        <a href="mailto:%20sferreira@svb.com?subject=YES%20Keep%20Me%20Informed%20about%20DEN.%20%20My%20email%20address%20is:" style="text-align:center; font-weight:bold; font-size:15px;">Click here and we will let you know when tickets are available!</a>
+        </div>
+      </div>
+      <div class="row">
+          <br><br><br>
+          logos got here
+          <br><br><br>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <form action="" id="messenger" method="GET">
+              <label id="messenger-label" for="messenger-input">Get involved? Tell us your name.</label>
+              <textarea id="messenger-input" placeholder="reply"></textarea>
+            </form>
+        </div>
+        <div class="col-sm-6">
+          more info here
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+    var form, label, input, client, convo;
+
+    function init(){
+      form = document.getElementById('messenger');
+      label = document.getElementById('messenger-label');
+      input = document.getElementById('messenger-input');
+
+      convo = {
+        marker: 'name',
+        name: {
+          label: 'What\'s your name?',
+          placeholder: 'reply',
+          reply: ''
+        },
+        message: {
+          label: 'Hello, {Name}! Are you a dyslexic entrepreneur, ally, or other?',
+          placeholder: 'reply',
+          reply: ''
+        },
+        contact: {
+          label: 'What\'s the best way to reach you?',
+          placeholder: 'reply',
+          reply: ''
+        },
+        thanks: {
+          label: 'Roger that, {Name}!',
+          placeholder: 'thanks :)',
+          reply: undefined
+        }
+      };
+
+      if (window.addEventListener) {
+        input.addEventListener('keydown', handleKeypress);
+        form.addEventListener('submit', handleSubmit);
+      }
+      else {
+        input.attachEvent('onkeydown', handleKeypress);
+        form.attachEvent('onsubmit', handleSubmit);
+      }
+
+      initAnalytics();
+    }
+
+    function handleCompletion(){
+      client.addEvent('message', {
+        message: {
+          name: convo['name'].reply,
+          text: convo['message'].reply,
+          contact: convo['contact'].reply
+        }
+      });
+    }
+
+    function handleKeypress(e){
+      if (e.keyCode === 13) {
+        handleSubmit(input.value);
+      }
+      else {
+        resetTextareaHeight();
+      }
+    }
+
+    function handleSubmit(e){
+      if (e && e.preventDefault) {
+        e.preventDefault();
+      }
+      convo[convo.marker].reply = input.value;
+      switch (convo.marker) {
+        case 'name':
+          convo.marker = 'message';
+          break;
+        case 'message':
+          convo.marker = 'contact';
+          break;
+        case 'contact':
+          convo.marker = 'thanks';
+          input.disabled = true;
+          handleCompletion();
+          // console.log(convo);
+          break;
+      }
+      input.blur();
+      input.value = '';
+      label.innerHTML = convo[convo.marker]['label'].replace('{Name}', convo['name'].reply);
+      input.placeholder = convo[convo.marker]['placeholder'];
+      setTimeout(function(){
+        input.focus();
+      }, 500);
+
+    }
+
+    function resetTextareaHeight(len){
+      var len = input.value.length;
+      var width = input.clientWidth;
+      input.style.minHeight = len / (width/23) * 70 + "px";
+    }
+
+    function initAnalytics(){
+      client = new Keen({
+        projectId: "56561253e0855757577cb061",
+        writeKey: "166193fec150201c5383a25773eef49fea62331138772e25f8cb08295aa1883b3fb53a4ec2c871d4316e95a00b1c1e2a3d66f756eddbe421955ea0abc3f08586ebc9b8d9ee48639134584f8d5ea2447e207abd0a0480538c4c850702eae6bc2d73a0c2711c82d626eb7c2683b709425a",
+        requestType: "xhr"
+      });
+
+      client.setGlobalProperties(function(collection){
+        return {
+          page: {
+            title: document.title,
+            host: document.location.host,
+            href: document.location.href,
+            path: document.location.pathname,
+            protocol: document.location.protocol.replace(/:/g, ''),
+            query: document.location.search
+          },
+          referrer: {
+            url: document.referrer
+          },
+          tech: {
+            ip_address: "${keen.ip}",
+            user_agent: "${keen.user_agent}"
+          },
+          keen: {
+            timestamp: new Date().toISOString(),
+            addons: [
+              {
+                "name"   : "keen:ip_to_geo",
+                "input"  : { "ip": "tech.ip_address" },
+                "output" : "geo"
+              },
+              {
+                "name"   : "keen:ua_parser",
+                "input"  : { "ua_string": "tech.user_agent" },
+                "output" : "tech"
+              },
+              {
+                "name"   : "keen:url_parser",
+                "input"  : { "url": "page.href" },
+                "output" : "page.info"
+              },
+              {
+                "name"   : "keen:referrer_parser",
+                "input"  : { "referrer_url": "referrer.url", "page_url": "page.href" },
+                "output" : "referrer.info"
+              }
+            ]
+          }
+        };
+      });
+
+      client.addEvent("pageview");
+    }
+
+    domready(init);
+    </script>
+  </body>
+</html>

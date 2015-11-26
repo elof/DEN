@@ -1,0 +1,11 @@
+body {
+  background-color: yellow;
+}
+
+#logo-words {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 300;
+  padding-bottom: 30px;
+}
