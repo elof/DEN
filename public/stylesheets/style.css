@@ -31,6 +31,22 @@ body {
   padding-left: 30px;
 }
 
+.post-content {
+  padding: 30px 0;
+}
+
+.post-content a h1 {
+  color: #7D00FF;
+}
+
+.post-content a {
+  color: #7D00FF;
+}
+
+.post-content input {
+  float: right;
+}
+
 #footer-links ul {
   list-style-type:none;
 }
