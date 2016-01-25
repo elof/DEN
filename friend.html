@@ -48,8 +48,105 @@
         </div>
       </div>
     </div>
-    <!-- pageview tracking -->
+    <!-- form submission logic and pageview tracking -->
+    <script src="public/javascripts/message.js" type="text/javascript"></script>
     <script type="text/javascript">
+    var form, label, input, client, convo;
+
+    function init(){
+      form = document.getElementById('messenger');
+      label = document.getElementById('messenger-label');
+      input = document.getElementById('messenger-input');
+
+      convo = {
+        marker: 'name',
+        name: {
+          label: 'What\'s your name?',
+          placeholder: 'reply',
+          reply: ''
+        },
+        message: {
+          label: 'Hello, {Name}! Are you a dyslexic entrepreneur, ally, or other?',
+          placeholder: 'reply',
+          reply: ''
+        },
+        contact: {
+          label: 'What\'s your email?',
+          placeholder: 'reply',
+          reply: ''
+        },
+        thanks: {
+          label: 'Roger that, {Name}!',
+          placeholder: 'thanks :)',
+          reply: undefined
+        }
+      };
+
+      if (window.addEventListener) {
+        input.addEventListener('keydown', handleKeypress);
+        form.addEventListener('submit', handleSubmit);
+      }
+      else {
+        input.attachEvent('onkeydown', handleKeypress);
+        form.attachEvent('onsubmit', handleSubmit);
+      }
+
+      initAnalytics();
+    }
+
+    function handleCompletion(){
+      client.addEvent('message', {
+        message: {
+          name: convo['name'].reply,
+          text: convo['message'].reply,
+          contact: convo['contact'].reply
+        }
+      });
+    }
+
+    function handleKeypress(e){
+      if (e.keyCode === 13) {
+        handleSubmit(input.value);
+      }
+      else {
+        resetTextareaHeight();
+      }
+    }
+
+    function handleSubmit(e){
+      if (e && e.preventDefault) {
+        e.preventDefault();
+      }
+      convo[convo.marker].reply = input.value;
+      switch (convo.marker) {
+        case 'name':
+          convo.marker = 'message';
+          break;
+        case 'message':
+          convo.marker = 'contact';
+          break;
+        case 'contact':
+          convo.marker = 'thanks';
+          input.disabled = true;
+          handleCompletion();
+          // console.log(convo);
+          break;
+      }
+      input.blur();
+      input.value = '';
+      label.innerHTML = convo[convo.marker]['label'].replace('{Name}', convo['name'].reply);
+      input.placeholder = convo[convo.marker]['placeholder'];
+      setTimeout(function(){
+        input.focus();
+      }, 500);
+
+    }
+
+    function resetTextareaHeight(len){
+      var len = input.value.length;
+      var width = input.clientWidth;
+      input.style.minHeight = len / (width/23) * 70 + "px";
+    }
 
     function initAnalytics(){
       client = new Keen({
@@ -104,7 +201,7 @@
       });
       client.addEvent("pageview");
     }
-    domready(initAnalytics);
+    domready(init);
     </script>
   </body>
 </html>
