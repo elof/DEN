@@ -14,3 +14,31 @@ body {
   text-align: center;
   font-weight: bold;
 }
+
+#navigation a {
+  color: #7D00FF;
+  /*color: #407CFF;*/
+}
+
+.navbar {
+  background-color: yellow;
+  border-color: yellow;
+}
+
+.navbar a {
+  color: #7D00FF;
+  /*color: #407CFF;*/
+  padding-left: 30px;
+}
+
+#footer-links ul {
+  list-style-type:none;
+}
+
+#footer-links ul li {
+  padding-top:15px;
+}
+
+#footer-links ul li a {
+  color: #7D00FF;
+}

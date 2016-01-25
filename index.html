@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="public/stylesheets/form.css">
     <link rel="stylesheet" href="public/stylesheets/style.css">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ "public/favicon.ico" | prepend: site.baseurl }}" >
+    <link rel="shortcut icon" type="image/x-icon" href="{{ "/favicon.ico" | prepend: site.baseurl }}" >
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -47,13 +47,13 @@
       <!-- main part of page  -->
       <div class="col-sm-8 col-sm-offset-2" id="navigation">
         <div class="col-sm-4">
-          <a href="/Users/elof/hackathon/DEN/blog.html">get involved</a>
+          <a href="/friend">get involved</a>
         </div>
         <div class="col-sm-4">
-          <a href="/Users/elof/hackathon/DEN/blog.html">events</a>
+          <a href="https://www.eventbrite.com/e/den-campfire-un-conf-tickets-21002881183">events</a>
         </div>
         <div class="col-sm-4">
-          <a href="/Users/elof/hackathon/DEN/blog.html">blog</a>
+          <a href="/blog">blog</a>
         </div>
       </div>
       <div class="row">
@@ -69,12 +69,14 @@
           </div>
         </div>
       </div>
-      <!-- logos of supporters -->
-      <div class="row">
+
+      <!-- we can put logos of supporters and allys here, but should we? -->
+      <!-- <div class="row">
           <br><br>
           logos go here
           <br><br><br>
-      </div>
+      </div> -->
+
       <!-- footer -->
       <div class="row">
         <div class="col-sm-6" id="get-involved">
@@ -83,8 +85,19 @@
               <textarea id="messenger-input" placeholder="reply"></textarea>
             </form>
         </div>
-        <div class="col-sm-6">
-          more info here
+        <div class="col-sm-3" id="footer-links">
+          <ul>
+            <li><a href="https://twitter.com/denlaunch">Linkes to things</a></li>
+            <li><a href="https://twitter.com/denlaunch">Linkes to things</a></li>
+            <li><a href="https://twitter.com/denlaunch">Linkes to things</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-3" id="footer-links">
+          <ul>
+            <li><a href="https://twitter.com/denlaunch">Linkes to things</a></li>
+            <li><a href="https://twitter.com/denlaunch">Linkes to things</a></li>
+            <li><a href="https://twitter.com/denlaunch">Linkes to things</a></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -240,7 +253,6 @@
           }
         };
       });
-
       client.addEvent("pageview");
     }
     domready(init);
