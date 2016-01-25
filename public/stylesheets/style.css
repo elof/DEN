@@ -12,11 +12,11 @@ body {
 
 #navigation {
   text-align: center;
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 #navigation a {
-  color: #7D00FF;
+  color: black;
   /*color: #407CFF;*/
 }
 
